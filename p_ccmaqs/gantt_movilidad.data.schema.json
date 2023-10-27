@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://soporte.edisa.com/js/files/assets/ob/gantt_movilidad.data.schema.json",
+  "default": {},
+  "title": "Data Schema",
+  "required": [
+      "data",
+      "links"
+  ],
+  "properties": {
+    "data": {
+        "type": "array",
+        "default": [],
+        "title": "Data Schema",
+        "items": {
+          "type": "object",
+          "default": {},
+          "title": "Esquema de Tarea",
+          "required": [
+              "id",
+              "text",
+              "type",
+              "start_date"
+          ],
+          "properties": {
+              "id": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "Identificador",
+                  "examples": [
+                      1
+                  ]
+              },
+              "text": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Titulo",
+                  "examples": [
+                      "Tarea 1"
+                  ]
+              },
+              "type": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Tipo de Elemento",
+                  "examples": [
+                      "project",
+                      "task",
+                      "fase"
+                  ]
+              },
+              "start_date": {
+                  "type": "string",
+                  "default": "YYYY-MM-DD HH24:Mi",
+                  "title": "Fecha de Inicio",
+                  "examples": [
+                      "2024-04-03 00:00"
+                  ]
+              },
+              "end_date": {
+                  "type": "string",
+                  "default": "YYYY-MM-DD HH24:Mi",
+                  "title": "Fecha Fin (si no se envía \"duration\")",
+                  "examples": [
+                      "2024-04-15 00:00"
+                  ]
+              },
+              "duration": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "Duración en Días (si no se envía \"end_date\")",
+                  "examples": [
+                      7
+                  ]
+              },
+              "parent": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "Identificador de Tarea Padre",
+                  "examples": [
+                      1
+                  ]
+              },
+              "progress": {
+                  "type": "number",
+                  "default": 0.0,
+                  "title": "Progreso de Realización (0..1)",
+                  "examples": [
+                      0.5,
+                      0.75
+                  ]
+              },
+              "owner": {
+                  "type": "array",
+                  "default": [],
+                  "title": "Recursos",
+                  "items": {
+                      "type": "object",
+                      "title": "Recurso",
+                      "required": [
+                          "resource_id",
+                          "value"
+                      ],
+                      "properties": {
+                          "resource_id": {
+                              "type": "string",
+                              "title": "Identificador del Recurso",
+                              "examples": [
+                                  "1",
+                                  "2"
+                              ]
+                          },
+                          "value": {
+                              "type": "integer",
+                              "title": "Horas",
+                              "examples": [
+                                  2,
+                                  5
+                              ]
+                          }
+                      },
+                      "examples": [{
+                          "resource_id": "1",
+                          "value": 2
+                      },
+                      {
+                          "resource_id": "2",
+                          "value": 5
+                      }]
+                  },
+                  "examples": [
+                      [{
+                          "resource_id": "1",
+                          "value": 2
+                      },
+                      {
+                          "resource_id": "2",
+                          "value": 5
+                      }]
+                  ]
+              },
+              "priority": {
+                  "type": "integer",
+                  "default": 0,
+                  "title": "Prioridad",
+                  "examples": [
+                      1
+                  ]
+              },
+              "readonly": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Solo Lectura",
+                  "examples": [
+                      false,
+                      true
+                  ]
+              },
+              "open": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Expandida",
+                  "examples": [
+                      true,
+                      false
+                  ]
+              },
+              "planned_start": {
+                  "type": "string",
+                  "default": "YYYY-MM-DD HH24:Mi",
+                  "title": "Fecha Inicio Planificada",
+                  "examples": [
+                      "2024-04-03 00:00"
+                  ]
+              },
+              "planned_end": {
+                  "type": "string",
+                  "default": "YYYY-MM-DD HH24:Mi",
+                  "title": "Fecha Fin Planificada",
+                  "examples": [
+                      "2024-04-12 00:00"
+                  ]
+              },
+              "datos": {
+                  "type": "object",
+                  "default": {},
+                  "title": "Datos Opcionales",
+                  "properties": {}
+              }
+          },
+          "examples": [{
+              "id": 2,
+              "text": "Tarea 1",
+              "type": "task",
+              "start_date": "2024-04-03 00:00",
+              "end_date": "2024-04-15 00:00",
+              "duration": 7,
+              "parent": 1,
+              "progress": 0.6,
+              "owner": [{
+                  "resource_id": "1",
+                  "value": 2
+              },
+              {
+                  "resource_id": "2",
+                  "value": 5
+              }],
+              "priority": 1,
+              "readonly": true,
+              "open": false,
+              "planned_start": "2024-04-03 00:00",
+              "planned_end": "2024-04-12 00:00",
+              "datos": {}
+          }]
+        },
+        "examples": [
+            [{
+                "id": 2,
+                "text": "Tarea 1",
+                "type": "task",
+                "start_date": "2024-04-03 00:00",
+                "end_date": "2024-04-15 00:00",
+                "duration": 7,
+                "parent": 1,
+                "progress": 0.6,
+                "owner": [{
+                    "resource_id": "1",
+                    "value": 2
+                },
+                {
+                    "resource_id": "2",
+                    "value": 5
+                }],
+                "priority": 1,
+                "readonly": true,
+                "open": false,
+                "planned_start": "2024-04-03 00:00",
+                "planned_end": "2024-04-12 00:00",
+                "datos": {}
+            },
+            {
+                "id": 3,
+                "text": "Tarea (Solo Lectura)",
+                "type": "task",
+                "start_date": "2024-04-08 00:00",
+                "end_date": "2024-04-15 00:00",
+                "parent": 1,
+                "progress": 0,
+                "owner": [{
+                    "resource_id": "1",
+                    "value": 2
+                }],
+                "readonly": true
+            }]
+        ]
+    },
+    "links": {
+        "type": "array",
+        "default": [],
+        "title": "Links Schema",
+        "items": {
+            "type": "object",
+            "default": {},
+            "title": "Enlaces",
+            "required": [
+                "id",
+                "source",
+                "target",
+                "type"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "Identificador",
+                    "examples": [
+                        1
+                    ]
+                },
+                "source": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "Tarea origen",
+                    "examples": [
+                        2
+                    ]
+                },
+                "target": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "Tarea destino",
+                    "examples": [
+                        3
+                    ]
+                },
+                "type": {
+                    "type": "string",
+                    "default": "",
+                    "title": "Tipo",
+                    "examples": [
+                        "0"
+                    ]
+                }
+            },
+            "examples": [{
+                "id": 1,
+                "source": 2,
+                "target": 3,
+                "type": "0"
+            }]
+        },
+        "examples": [
+            [{
+                "id": 1,
+                "source": 2,
+                "target": 3,
+                "type": "0"
+            }]
+        ]
+    }
+  }
+}
