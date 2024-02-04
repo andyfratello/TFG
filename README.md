@@ -51,4 +51,4 @@ adaptándose a las necesidades específicas de cada empresa.
 * [andyfratello](https://github.com/andyfratello)
 
 
-### Nota: 9.6
+Nota: 9.6
